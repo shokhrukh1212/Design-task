@@ -1,0 +1,465 @@
+.main__navbar {
+  padding-bottom: 77px;
+  width: 100%;
+
+  .main__navbar__slides {
+    width: 100%;
+
+    .main__navbar__slides__container {
+      // mixin to use the same style in differenct places
+      @mixin box__content__styles {
+        .top__box__content__header {
+          width: 103px;
+          height: 61px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+          background: rgba(1, 45, 142, 0.5);
+          padding: 3px;
+
+          p {
+            color: #fff;
+            font-family: Manrope;
+            font-size: 36px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            margin-right: 10px;
+          }
+          div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            span {
+              color: #fff;
+              font-family: Manrope;
+              font-size: 12px;
+              margin-bottom: 3px;
+            }
+          }
+        }
+
+        .top__box__content {
+          width: 587px;
+          height: 161px;
+          background: #012d8e;
+          padding: 36px;
+
+          p {
+            color: #fff;
+            font-family: Manrope;
+            font-size: 23px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: 0.46px;
+          }
+        }
+      }
+
+      @mixin left_box {
+        width: 675px;
+        height: 631px;
+        background-image: url("../images/press-center-one.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 33px 55px 25px 33px;
+      }
+
+      @mixin background_overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          rgba(1, 45, 142, 0) 0%,
+          #012d8e 100%
+        );
+      }
+
+      /*--------------------------------------------------------------------------*/
+
+      div.slider {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-bottom: 38px;
+        display: none;
+        transition: display ease-out 1s;
+      }
+
+      /*                 First slider          */
+
+      div.first-active {
+        display: flex;
+
+        .left__column {
+          flex: 1;
+          display: flex;
+          align-items: center;
+
+          .left__box {
+            @include left_box;
+            @include box__content__styles;
+          }
+        }
+
+        .right__column {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+
+          .top__box {
+            width: 670px;
+            height: 263px;
+            background: #012d8e;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            padding: 20px 44px 40px 30px;
+            margin-left: 18px;
+
+            @include box__content__styles;
+
+            .top__box__content__header {
+              border-radius: 10px;
+              background: rgba(0, 31, 100, 0.5);
+            }
+
+            .top__box__content {
+              width: 602px;
+              height: 65px;
+              padding: 0;
+            }
+          }
+
+          .bottom__box {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 18px;
+            margin-left: 18px;
+
+            .inner__box {
+              width: 327px;
+              height: 349px;
+              background: #1e8202;
+              display: flex;
+              justify-content: space-between;
+              flex-direction: column;
+              padding: 30px;
+              margin-right: 18px;
+
+              @include box__content__styles;
+
+              .top__box__content__header {
+                background: rgba(0, 0, 0, 0.08);
+              }
+
+              .top__box__content {
+                width: 269px;
+                height: 100px;
+                padding: 0;
+                background: none;
+
+                p {
+                  color: #fff;
+                  font-family: Manrope;
+                  font-size: 20px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: 24px;
+                  letter-spacing: 0.4px;
+                }
+              }
+
+              &:last-child {
+                background: #ff675d;
+
+                .top__box__content__header {
+                  background: rgba(0, 0, 0, 0.08);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      /*                 Second slider          */
+      div.second-active {
+        display: flex;
+
+        .first__column {
+          @include left_box;
+          @include box__content__styles;
+          position: relative;
+          object-fit: cover;
+          padding-bottom: 51px;
+
+          .first__column__replay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+
+            svg {
+              fill: #fff;
+            }
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
+          .first__column__overlay {
+            @include background_overlay;
+          }
+
+          .top__box__content {
+            background: none;
+            z-index: 1;
+            padding: 0;
+            display: flex;
+
+            p {
+              align-self: flex-end;
+            }
+          }
+
+          img {
+            transition: scale 400ms;
+          }
+
+          &:hover img {
+            scale: 120%;
+          }
+        }
+
+        .second__column,
+        .third__column {
+          @include box__content__styles;
+          @include left_box;
+          width: 327px;
+          height: 630px;
+          background-image: url("../images/factorySlide.jpg");
+          background-size: cover;
+          position: relative;
+          padding: 30px;
+
+          .second__column__overlay {
+            @include background_overlay;
+            background: linear-gradient(
+              180deg,
+              rgba(4, 142, 1, 0) 0%,
+              #0c8e01 100%
+            );
+          }
+
+          .top__box__content {
+            width: 269px;
+            background: none;
+            z-index: 1;
+            padding: 0;
+            display: flex;
+
+            p {
+              font-size: 20px;
+              align-self: flex-end;
+            }
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .third__column {
+          .third__column__overlay {
+            @include background_overlay;
+            background: linear-gradient(
+              180deg,
+              rgba(142, 1, 1, 0) 0%,
+              #8e1a01 100%
+            );
+          }
+        }
+      }
+
+      /*                 Third slider          */
+      div.third-active {
+        display: flex;
+
+        .first__column,
+        .second__column {
+          @include left_box;
+          @include box__content__styles;
+          position: relative;
+          object-fit: cover;
+          padding-bottom: 51px;
+
+          .first__column__replay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+
+            svg {
+              fill: #fff;
+            }
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
+          .first__column__overlay {
+            @include background_overlay;
+          }
+
+          .top__box__content {
+            background: none;
+            z-index: 1;
+            padding: 0;
+            display: flex;
+
+            p {
+              align-self: flex-end;
+            }
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .first__column {
+          background-image: url("../images/solarEnergy.png");
+        }
+
+        .second__column {
+          background-image: url("../images/ecosystem.png");
+          .second__column__overlay {
+            @include background_overlay;
+          }
+        }
+      }
+    }
+  }
+
+  .main__navbar__statistics {
+    .statistics_in_numbers {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 673px);
+      grid-template-rows: repeat(2, 205px);
+      column-gap: 20px;
+      row-gap: 26px;
+
+      .statistics {
+        color: red;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        transition: box-shadow 0.5s ease;
+
+        .statistics__left {
+          height: 100%;
+          padding-top: 15px;
+
+          .statistics__left-text {
+            color: #1b2046;
+            font-family: Manrope;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40px;
+            letter-spacing: 0.28px;
+            margin-bottom: 33px;
+          }
+
+          .statistics__left__body {
+            .statistics__left__body-title {
+              color: #5f6ac0;
+
+              font-family: Manrope;
+              font-size: 50px;
+              font-style: normal;
+              font-weight: 800;
+              line-height: 40px;
+              margin-bottom: 13px;
+
+              span {
+                font-size: 14px;
+                padding-left: 5px;
+              }
+            }
+            p {
+              color: #171849;
+              font-family: Manrope;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 40px; /* 200% */
+              letter-spacing: 0.4px;
+            }
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+          box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+
+  .main__navbar__questions {
+    width: 790px;
+    height: 280px;
+    padding: 35px 222px 45px 47px;
+    background-color: #fff;
+    margin-top: 86px;
+
+    h1 {
+      color: #171849;
+      font-family: Manrope;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 33px;
+    }
+
+    p {
+      color: #171849;
+      font-family: Manrope;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 40px;
+    }
+
+    button {
+      background-color: #ff675d;
+      padding: 10px 42px;
+      border: none;
+      color: #fff;
+      margin-top: 30px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

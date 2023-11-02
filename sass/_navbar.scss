@@ -1,0 +1,30 @@
+.header__six__sections {
+  width: $primary-width;
+  margin: 37px auto 41px auto;
+  display: grid;
+  grid-template-columns: repeat(6, 212px);
+  grid-template-rows: 200px;
+  column-gap: 19px;
+
+  div {
+    background: #f3f6fd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    img {
+      margin-bottom: 22px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: #fff;
+    }
+  }
+
+  .active {
+    background-color: #fff;
+    box-shadow: 10px 14px 124px 0px rgba(24, 80, 164, 0.17);
+  }
+}
